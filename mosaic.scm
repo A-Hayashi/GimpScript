@@ -13,7 +13,7 @@
         ;; 既存のレイヤをコピーして新しいレイヤにモザイクをかける
 		(set! copy-layer (car (gimp-layer-copy drawable 1)))
 		(gimp-image-insert-layer image copy-layer 0 1)
-        (plug-in-gauss-rle 1 image copy-layer 16 16 0)
+        (plug-in-gauss-rle 1 image copy-layer 32 32 0)
         
         ;; 既存のレイヤを選択する       
         (gimp-image-set-active-layer image drawable)
