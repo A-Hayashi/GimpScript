@@ -16,11 +16,20 @@
          (image)) 
     (while (> i 0) 
       (set! image (vector-ref (cadr (gimp-image-list)) (- i 1))) 
-      (gimp-file-save RUN-NONINTERACTIVE 
+      (file-jpeg-save RUN-NONINTERACTIVE 
                       image 
-                      (car (gimp-image-merge-visible-layers image 0)) 
-                      (car (gimp-image-get-filename image)) 
-                      (car (gimp-image-get-filename image))) 
+                      (car (gimp-image-merge-visible-layers image 0))
+                      (string-append (car (gimp-image-get-filename image)) ".jpg")
+                      (string-append (car (gimp-image-get-filename image)) ".jpg")
+                      0.85
+                      0.00
+                      1
+                      0
+                      ""
+                      0
+                      1
+                      0
+                      0) 
       (gimp-image-clean-all image) 
       (set! i (- i 1))))) 
 
